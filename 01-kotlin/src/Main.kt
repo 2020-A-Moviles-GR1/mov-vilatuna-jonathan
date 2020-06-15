@@ -5,15 +5,20 @@ fun main(args:Array<String>){
     print("Hola")
     // Ejemplo java:
     //    Int edad = 31;
+
+
     // Mutables no usar
     var edadProfesor = 31   // No especificamos el tipo de dato
     // punto y coma no es necesario
     // Duck Typing
     // var edadCachrro; X -> necesitamos el tipo de datos
+
     var edadCachorro:Int
     edadCachorro = 3
     edadProfesor = 32
     edadCachorro = 4
+
+
     //Inmutables siempre usar
     val numeroCuenta = 123456   // NO SE PUEDEN REASIGNAR
     //numeroCuenta=123
