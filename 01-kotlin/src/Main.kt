@@ -53,22 +53,65 @@ fun main(args:Array<String>){
     print(arregloCumpleanos)
 
     arregloCumpleanos
-            .forEach {
-                println("valor de iteracion:" + it)
-            }
-
-    arregloCumpleanos
             .forEach { valorIteracion: Int ->
-                        println("valor de iteracion:" + valorIteracion)
+                println("Valor iteracion: " + valorIteracion)
             }
-
     arregloCumpleanos
             .forEach(
-                    {
-                        valorIteracion: Int ->
-                            println("valor de iteracion:" + valorIteracion)
+                    { valorIteracion: Int ->
+                        println("Valor iteracion: " + valorIteracion)
                     }
             )
+    // Operadores -> TODOS LOS LENGUAJES
+    // ForEach no devuelve nada -> Unit
+
+    arregloCumpleanos
+            .forEach { iteracion: Int ->
+                println("Valor de la iteracion " + iteracion)
+                println("Valor con -1 = ${iteracion * -1} ")
+            }
+
+    val respuestaArregloForEach = arregloCumpleanos
+            .forEachIndexed { index: Int, iteracion: Int ->
+                println("Valor de la iteracion " + iteracion)
+            }
+    println(respuestaArregloForEach) // Void Unit
+
+    // MAP -> muta el arreglo (cambio el arreglo)
+    // 1) Enviemos el nuevlo valor de la iteracion
+    // 2) Nos devuelve es un NUEVO ARREGlo con los valores modificados
+    val respuestaMap = arregloCumpleanos
+            .map { iterador: Int ->
+                iterador * -1
+            }
+    val respuestaMapDos= arregloCumpleanos
+            .map { iterador: Int ->
+                val nuevoValor = iterador * -1
+                val otroValor = nuevoValor * 2
+                return@map otroValor
+            }
+    val respuestaMapTres= arregloCumpleanos
+            .map { iterador: Int ->
+                val nuevoValor = iterador * -1
+                val otroValor = nuevoValor * 2
+                return@map Date()
+            }
+
+    // Filter -> FILTRAR EL ARREGLO
+
+    val respuestaFilter = arregloCumpleanos
+            .filter {
+                iteracion: Int ->
+                val esMayorA23 = iteracion >23
+                return@filter esMayorA23
+            }
+
+    println(respuestaMap)
+    println(respuestaMapDos)
+    println(respuestaMapTres)
+    println(arregloCumpleanos)
+    println(respuestaFilter)
+
 }
 
 //Funciones
