@@ -177,7 +177,6 @@ if (sueldo == 12.20){
                     {acc, d ->acc - d})
             .also { println(it) }
     println(vidaActual)
->>>>>>> desarrollo
 }
 
 //Funciones
