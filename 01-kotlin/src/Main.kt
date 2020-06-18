@@ -1,5 +1,4 @@
 import java.util.*
-import kotlin.collections.ArrayList
 
 fun main(args:Array<String>){
     print("Hola")
@@ -9,7 +8,7 @@ fun main(args:Array<String>){
 
     // Mutables no usar
     var edadProfesor = 31   // No especificamos el tipo de dato
-    // punto y coma no es necesario
+                            // punto y coma no es necesario
     // Duck Typing
     // var edadCachrro; X -> necesitamos el tipo de datos
 
@@ -29,17 +28,17 @@ fun main(args:Array<String>){
     val apellidoProfesor = 'a'
     val fechaNacimiento = Date() //new Date()
 
-    if (sueldo == 12.20){
+if (sueldo == 12.20){
 
     }else{
 
     }
 
-    when (sueldo) {
-        12.20 -> println("sueldo normal")
-        -12.20-> println("sueldo negativo")
-        else-> println("No se reconoce el sueldo")
-    }
+   when (sueldo) {
+       12.20 -> println("sueldo normal")
+       -12.20-> println("sueldo negativo")
+       else-> println("No se reconoce el sueldo")
+   }
 
     val esSueldoMayorAlEsblecido = if(sueldo == 12.20) true else false
     //EXPRESION ? X: Y
@@ -48,6 +47,7 @@ fun main(args:Array<String>){
     calcularSueldo(tasa = 16.00, sueldo = 800.00, calculoEspecial = null)//Named Parameters
     calcularSueldo(700.00)
     calcularSueldo(sueldo = 650.00)
+
 
     val arregloConstante: Array<Int> = arrayOf(1,2,3)
     val arregloCumpleanos: ArrayList<Int> = arrayListOf(30,31,22,23,20)
@@ -183,7 +183,7 @@ fun main(args:Array<String>){
 fun calcularSueldo(
         sueldo: Double, //Requeriso!
         tasa: Double = 12.00, //Tiene valor por defecto
-        calculoEspecial : Int? = null //puede ser nulo
+    calculoEspecial : Int? = null //puede ser nulo
 ): Double {
     if (calculoEspecial != null){
         return sueldo * tasa * calculoEspecial
