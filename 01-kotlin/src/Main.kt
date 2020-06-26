@@ -1,4 +1,5 @@
 import java.util.*
+import javax.print.DocFlavor
 
 fun main(args:Array<String>){
     print("Hola")
@@ -35,7 +36,7 @@ if (sueldo == 12.20){
     }
 
    when (sueldo) {
-       12.20 -> println("sueldo normal")
+       12.20 -> println("\nsueldo normal")
        -12.20-> println("sueldo negativo")
        else-> println("No se reconoce el sueldo")
    }
@@ -102,8 +103,7 @@ if (sueldo == 12.20){
                 return@map Date()
             }
 
-    //ANY -> OR (Some)
-    //ALL -> AND (Every)
+
     // Filter -> FILTRAR EL ARREGLO
     //AND -> TRUE, todo lo demas falso  OR -> TODO es falso, lo demas es verdadero
     //1)vdevolver una expresion (TRUE O FALSE)
@@ -177,8 +177,31 @@ if (sueldo == 12.20){
                     {acc, d ->acc - d})
             .also { println(it) }
     println(vidaActual)
-}
 
+    val nuevoNumeroUno =  SumaDosNumeroDos(1,1)
+    val nuevoNumeroDos =  SumaDosNumeroDos(null,1)
+    val nuevoNumeroTres =  SumaDosNumeroDos(1,null)
+    val nuevoNumeroCuatro =  SumaDosNumeroDos(null,null)
+    println(SumaDosNumeroDos.arregloNumeros)
+    SumaDosNumeroDos.agregarNumero(1)
+    println(SumaDosNumeroDos.arregloNumeros)
+    SumaDosNumeroDos.eliminarNumero(0)
+    println(SumaDosNumeroDos.arregloNumeros)
+
+
+    var nombre: String? = null
+    nombre = "Adria"
+    imprimirNombre(nombre)
+    if(nombre != null){
+      println(nombre.length)
+    }
+
+}// cerrando main
+
+fun imprimirNombre(nombre: String?){
+    println(nombre?.length)//Elvis Operator llamadas seguras a instancias nulas
+                            //Null safe CALLS
+}
 //Funciones
 fun calcularSueldo(
         sueldo: Double, //Requeriso!
@@ -206,16 +229,67 @@ abstract  class NumerosJava{ // val nuevosNumeros = Numeros(1,2)
 }
 
 abstract  class Numeros( // val nuevosNumeros =Numeros (1,2)
-    protected  val numeroUno:Int, // si son publicos no hace falta declarar el tipo
-    protected val numeroDos:Int
+    protected  var numeroUno:Int, // si son publicos no hace falta declarar el tipo
+    protected var numeroDos:Int
 ){
 }
 
 class Suma(
-         uno: Int,
-         dos: Int
+        uno: Int, // Parametro
+        dos: Int // Parametro
+) : Numeros(uno, dos) {
+    fun sumar(): Int {
+        // this.uno o this.dos NO ESTAN DISPONIBLES
+        return this.numeroUno + this.numeroDos
+    }
+}
+
+class SumaDos(
+         uno: Int, //Propiedades
+         dos: Int //Propiedades
         ):Numeros(uno, dos){
     public fun Sumar():Int{
         return  this.numeroUno + this.numeroDos
     }
 }
+
+class SumaDosNumeroDos(
+        uno: Int,
+        dos: Int
+) : Numeros(uno, dos) {
+    init {
+        println("Hola INIT")
+    }
+    constructor(uno: Int?, dos: Int) : this(
+            if (uno == null) 0 else uno,
+            dos
+    ) {
+        print("Hola 1")
+    }
+
+    constructor(uno: Int, dos: Int?) : this(
+            uno,
+            if (dos == null) 0 else dos
+    ) {
+        print("Hola 2")
+    }
+
+    constructor(uno: Int?, dos: Int?) : this(
+            if (uno == null) 0 else uno,
+            if (dos == null) 0 else dos
+    ) {
+        print("Hola 3\n")
+    }
+
+    companion object{ //crear singleton
+        val arregloNumerosInicial = arrayListOf(1,2,3,4)
+        val arregloNumeros = arrayListOf(1,2,3,4)
+        fun agregarNumero(nuevoNumero:Int){
+            this.arregloNumeros.add(nuevoNumero)
+        }
+        fun eliminarNumero(posicionNumero:Int){
+            this.arregloNumeros.removeAt(posicionNumero)
+        }
+    }
+}
+
