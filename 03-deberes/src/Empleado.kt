@@ -92,7 +92,6 @@ class Empleado private constructor(var codEmpleado: Int, var nombreEmpleado:Stri
             val strDate = "2000-01-01"
             return Date(sdf.parse(strDate).time)
         }
-
     }
 }
 
