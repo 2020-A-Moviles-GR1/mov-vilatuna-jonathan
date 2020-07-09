@@ -1,0 +1,4 @@
+Indice 0: [Marketing, Cuenca, 1] 
+Indice 1: [Inventigacion, Quito, 3] 
+Indice 2: [RRHH, Loja, 5] 
+
