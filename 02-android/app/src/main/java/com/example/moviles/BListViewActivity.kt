@@ -33,5 +33,21 @@ class BListViewActivity : AppCompatActivity() {
                 parent, view, position, id ->
             Log.i("list-view", "Posicion $position")
         }
+        btn_anadir_entrenador.
+        setOnClickListener{
+            anadirEntrenador(
+                adaptador,
+                listaEntrenadores
+            )
+        }
+    }
+
+    fun anadirEntrenador(adaptador: ArrayAdapter<Entrenador>,
+    listaEntenador: ArrayList<Entrenador>
+    ){
+        listaEntenador.add(
+            Entrenador("Nuevo","Entrenador")
+        )
+        adaptador.notifyDataSetChanged()
     }
 }

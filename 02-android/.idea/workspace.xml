@@ -16,24 +16,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/CicloDeVida.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/CicloDeVida.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/BListViewActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/BListViewActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/Entrenador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/moviles/Entrenador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_b_list_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_b_list_view.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03-deberes/TABLA_DEPARTAMENTO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../03-deberes/TABLA_DEPARTAMENTO.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03-deberes/TABLA_EMPLEADOS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../03-deberes/TABLA_EMPLEADOS.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03-deberes/out/production/03-deberes/Empleado$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../03-deberes/out/production/03-deberes/Empleado$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03-deberes/out/production/03-deberes/Empleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/../03-deberes/out/production/03-deberes/Empleado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03-deberes/out/production/03-deberes/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../03-deberes/out/production/03-deberes/MainKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03-deberes/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../03-deberes/src/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="R58M82QF4MK" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -67,7 +63,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_5X_API_29" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-13T12:13:51.262Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-16T12:25:24.920Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -76,6 +72,9 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.1769984167">
+      <recent name="com.example.moviles" />
+    </key>
     <key name="android.template.110946743">
       <recent name="com.example.moviles" />
     </key>
@@ -201,10 +200,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="86" y="100" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1593650657763" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1594642042910">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1594908116333">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1594642042910" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1594908116333" />
     <state x="786" y="211" key="edit.logcat.filter.dialog.dimensions" timestamp="1594039357242">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
