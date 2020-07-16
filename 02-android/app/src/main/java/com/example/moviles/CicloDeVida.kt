@@ -2,6 +2,7 @@ package com.example.moviles
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_ciclo_de_vida.*
 
@@ -12,13 +13,19 @@ class CicloDeVida : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ciclo_de_vida)
         Log.i("Activity","OnCreate")
+        numeroActual = ServicioBDDMemoria.numero
+        if(numeroActual != 0){
+            tv_numero.text=numeroActual.toString()
+        }
         btn_añadir.
                 setOnClickListener{
                     sumarValor()
                 }
     }
+
     fun sumarValor(){
         numeroActual=numeroActual+1
+        ServicioBDDMemoria.anadirNumero()
         tv_numero.text = numeroActual.toString()
     }
 
@@ -46,5 +53,24 @@ class CicloDeVida : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.i("Activity","OnDestroy")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Log.i("Activity", "onSaveInstanceState")
+       outState?.run {
+            putInt("numeroActualGuardado", numeroActual)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i("Activity", "onRestoreInstanceState")
+        val valorRecuperado = savedInstanceState
+            ?.getInt("numeroActualGuardado")
+        if (valorRecuperado!= null){
+                this.numeroActual = valorRecuperado
+                tv_numero.text = this.numeroActual.toString()
+        }
     }
 }
