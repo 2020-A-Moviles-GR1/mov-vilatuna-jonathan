@@ -4,23 +4,23 @@ import java.util.*
 
 fun main(args:Array<String>) {
     println("****************************DATOS DEPARTAMENTO****************************")
-    Departamento.insertarDatos("Marketing", "Cuenca",1)
-    Departamento.insertarDatos("Contabilidad", "Cuenca",2)
-    Departamento.insertarDatos("Inventigacion", "Quito",3)
-    Departamento.insertarDatos("Ventas", "Quito",4)
-    Departamento.insertarDatos("RRHH", "Loja",5)
+    Departamento.insertarDatos("Marketing", "Cuenca",true, 5.1,1)
+    Departamento.insertarDatos("Contabilidad", "Cuenca",true, 2.1,2)
+    Departamento.insertarDatos("Inventigacion", "Quito",true, 3.1,3)
+    Departamento.insertarDatos("Ventas", "Quito",true, 6.1,4)
+    Departamento.insertarDatos("RRHH", "Loja",true, 8.1,5)
     Departamento.mostrar()
     Departamento.totalDatos()
-    println("BORRAR DATOS DEL DEPARTAMENTO CON EL INDICE 2")
+    println("BORRAR DATOS DEL DEPARTAMENTO CON EL INDICE 3")
     Departamento.delete(3)
     Departamento.mostrar()
     Departamento.totalDatos()
     println("ACTUALIZAR DATOS DEL DEPARTAMENTO CON EL INDICE 1")
-    Departamento.udate(1,"Gerencia", "Guayas",2)
+    Departamento.udate(1,"Gerencia", "Guayas",true, 2.1,2)
     Departamento.mostrar()
     Departamento.totalDatos()
     println("BUSCAR UN DATO DEL DEPARTAMENTO")
-    Departamento.buscar("RRHH", "Loja",5)
+    Departamento.buscar("RRHH", "Loja",true, 2.1,5)
     println("GUARDAR DATOS EN ARCHIVO PLANO")
     Departamento.guardarDatos()
 
@@ -61,13 +61,14 @@ fun main(args:Array<String>) {
     var option = ""
     var codigoDepa = ""
 
-    while(option != "5") {
+    while(option != "6") {
         println("\n*************************MENU PARA INGRESO DE DATOS POR CONSOLA*****************************\n" +
                 "1 - Ingresar Datos Departamento\n" +
                 "2 - Ingresar Datos Empleado\n" +
                 "3 - Eliminar Departamento\n"+
                 "4 - Guardar En Archivo Plano\n"+
-                "5 - Salir")
+                "5 - Editar Departamento\n"+
+                "6 - Salir")
 
         option = readLine().toString()
         when (option) {
@@ -100,6 +101,24 @@ fun main(args:Array<String>) {
                 Departamento.guardarDatos()
                 Empleado.guardarDatos()
             }
+            "5" -> {
+                Departamento.mostrar()
+                println("\nIngresar Indice: ")
+                val indice = readLine()?.toInt() as Int
+                println ("Ingrese  Codigo departamento:")
+                val codDepartamento = readLine()?.toInt() as Int
+                println ("Ingrese Nombre Departamento: ")
+                val nombreDepartamento = readLine()?.toString() as String
+                println ("Ingrese Ciudad: ")
+                val ciudad = readLine()?.toString() as String
+                println ("Ingrese El Estado: ")
+                val estado = readLine()?.toBoolean() as Boolean
+                println ("Ingrese numero Departamento:")
+                val numero =  readLine()?.toDouble() as Double
+                Departamento.udate(indice,nombreDepartamento, ciudad,estado,numero,codDepartamento)
+                Departamento.mostrar()
+                Departamento.totalDatos()
+            }
             else -> {
                 println("\nCerrando!\n")
             }
@@ -108,7 +127,6 @@ fun main(args:Array<String>) {
 }
 
 fun fecha(Date:String): Date {
-    val sdf = SimpleDateFormat("yyyy-MM-dd")
-    val strDate = "2000-01-01"
-    return Date(sdf.parse(strDate).time)
+    val sdf = SimpleDateFormat("dd-MM-yyyy")
+    return Date(sdf.parse(Date).time)
 }

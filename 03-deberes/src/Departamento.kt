@@ -2,15 +2,15 @@ import java.io.File
 import java.nio.charset.Charset
 import java.util.*
 
-class Departamento private constructor(var nombreDepartamento:String, var ciudad:String,var codDepartamento: Int) {
+class Departamento private constructor(var nombreDepartamento:String, var ciudad:String,var estado:Boolean, var numero: Double,var codDepartamento: Int) {
     companion object {
         var count: Int = 0
-        private fun create(nombreDepartamento:String, ciudad:String,codDepartamento: Int): Departamento = Departamento(nombreDepartamento,  ciudad, codDepartamento)
+        private fun create(nombreDepartamento:String, ciudad:String,estado:Boolean, numero: Double,codDepartamento: Int): Departamento = Departamento(nombreDepartamento,  ciudad,estado, numero, codDepartamento)
         var datosDepartamento = arrayListOf<Any>()
 
-        fun insertarDatos(nombreDepartamento:String, ciudad:String,codDepartamento: Int){
-            val ingresoDatos = Departamento.create(nombreDepartamento,  ciudad, codDepartamento)
-            this.datosDepartamento.add(arrayListOf( ingresoDatos.nombreDepartamento, ingresoDatos.ciudad,ingresoDatos.codDepartamento))
+        fun insertarDatos(nombreDepartamento:String, ciudad:String,estado:Boolean, numero: Double,codDepartamento: Int){
+            val ingresoDatos = Departamento.create(nombreDepartamento,  ciudad,estado, numero, codDepartamento)
+            this.datosDepartamento.add(arrayListOf( ingresoDatos.nombreDepartamento, ingresoDatos.ciudad,ingresoDatos.estado, ingresoDatos.numero,ingresoDatos.codDepartamento))
         }
 
         fun totalDatos(){
@@ -28,13 +28,17 @@ class Departamento private constructor(var nombreDepartamento:String, var ciudad
             val nombreDepartamento = readLine()?.toString() as String
             println ("Ingrese Ciudad: ")
             val ciudad = readLine()?.toString() as String
-            insertarDatos(nombreDepartamento,ciudad,codDepartamento)
+            println ("Ingrese El Estado: ")
+            val estado = readLine()?.toBoolean() as Boolean
+            println ("Ingrese numero Departamento:")
+            val numero =  readLine()?.toDouble() as Double
+            insertarDatos(nombreDepartamento,ciudad,estado,numero,codDepartamento)
         }
         fun delete(Indice: Int){
             this.datosDepartamento.removeAt(Indice)
         }
-        fun udate(indice: Int, nombreDepartamento:String, ciudad:String,codDepartamento: Int){
-            this.datosDepartamento[indice]=arrayListOf(nombreDepartamento, ciudad, codDepartamento)
+        fun udate(indice: Int, nombreDepartamento:String, ciudad:String,estado:Boolean, numero: Double,codDepartamento: Int){
+            this.datosDepartamento[indice]=arrayListOf(nombreDepartamento,ciudad,estado,numero,codDepartamento)
         }
         fun guardarDatos() {
             var datos: String=""
@@ -44,11 +48,11 @@ class Departamento private constructor(var nombreDepartamento:String, var ciudad
             File("TABLA_DEPARTAMENTO.txt").writeText(datos+"\n")
             println("Datos Guardados Correctamente")
         }
-        fun buscar( nombreDepartamento:String, ciudad:String,codDepartamento: Int) {
-            val dato = datosDepartamento.find { it == arrayListOf(nombreDepartamento,ciudad,codDepartamento) }
+        fun buscar( nombreDepartamento:String, ciudad:String,estado:Boolean, numero: Double,codDepartamento: Int) {
+            val dato = datosDepartamento.find { it == arrayListOf(nombreDepartamento,ciudad,estado,numero,codDepartamento) }
             val count: Int = 0
             for ((indice, item) in datosDepartamento.withIndex()) {
-                if(item ==arrayListOf(nombreDepartamento,ciudad, codDepartamento)){
+                if(item ==arrayListOf(nombreDepartamento,ciudad,estado,numero,codDepartamento)){
                     println("Indice $indice: $dato")
                     count == indice
                 }
@@ -63,7 +67,7 @@ class Departamento private constructor(var nombreDepartamento:String, var ciudad
             var count2: Int = -1
             val st = StringTokenizer(datosDepartamento.toString())
             while (st.hasMoreTokens()) {
-                if((count%3)==0) {
+                if((count%5)==0) {
                     if(codDepartamento==codDepa){
                         Empleado.borrarEnCascade(codDepa)
                         delete(count2)

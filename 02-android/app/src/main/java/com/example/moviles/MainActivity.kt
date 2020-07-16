@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         btn_ciclo_vida.setOnClickListener{boton ->
            irCicloDeVida()
         }
+        btn_list_view.setOnClickListener{boton ->
+            irListView()
+        }
     }
 
     fun irCicloDeVida(){
@@ -23,5 +26,13 @@ class MainActivity : AppCompatActivity() {
             this, CicloDeVida::class.java
         )
 this.startActivity(intentExplicito)
+    }
+
+    fun irListView(){
+        val intentExplicito= Intent(
+            this, BListViewActivity::class.java
+        )
+        //this.startActivity(intentExplicito)
+        startActivity(intentExplicito)
     }
 }
