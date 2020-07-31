@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarEmpleado">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="REGISTRAR EMPLEADO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="124dp"
+        android:text="COD. EMPLEADO:"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_cod_emp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="134dp"
+        android:layout_height="17dp"
+        android:text="FECHA NACIMIENTO:"
+        app:layout_constraintBottom_toTopOf="@+id/txt_sueldo"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COD. DEPARTAMENTO:"
+        app:layout_constraintBottom_toTopOf="@+id/estado_emp"
+        app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+
+    <TextView
+
+        android:id="@+id/textView17"
+        android:layout_width="62dp"
+        android:layout_height="17dp"
+        android:text="SUELDO:"
+        app:layout_constraintBottom_toTopOf="@+id/txt_code_depa_emp"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Switch
+
+        android:id="@+id/estado_emp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACTIVO"
+        app:layout_constraintEnd_toEndOf="@+id/txt_code_depa_emp"
+        app:layout_constraintStart_toStartOf="@+id/txt_code_depa_emp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_code_depa_emp" />
+
+    <EditText
+
+        android:id="@+id/txt_code_depa_emp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="COD. DEPARTAMENTO"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/txt_sueldo"
+        app:layout_constraintStart_toStartOf="@+id/txt_sueldo"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sueldo" />
+
+
+    <TextView
+
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOMBRE:"
+        app:layout_constraintBottom_toTopOf="@+id/txt_fecha_emp"
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <EditText
+
+        android:id="@+id/txt_sueldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="SUELDO"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/txt_fecha_emp"
+        app:layout_constraintStart_toStartOf="@+id/txt_fecha_emp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_fecha_emp" />
+
+    <EditText
+
+        android:id="@+id/txt_fecha_emp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="FECHA NACIMIENTO"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="@+id/txt_nom_emp"
+        app:layout_constraintStart_toStartOf="@+id/txt_nom_emp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nom_emp" />
+
+    <EditText
+
+        android:id="@+id/txt_cod_emp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="7dp"
+        android:ems="10"
+        android:hint="COD. EMPLEADO"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:text="ESTADO:"
+        app:layout_constraintBottom_toBottomOf="@+id/estado_emp"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/txt_nom_emp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="NOMBRE"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/txt_cod_emp"
+        app:layout_constraintStart_toStartOf="@+id/txt_cod_emp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cod_emp" />
+
+    <Button
+        android:id="@+id/btn_registrar_empleado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="125dp"
+        android:text="REGISTRAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_cancelar_registro_empleado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="68dp"
+        android:text="CANCELAR"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_registrar_empleado"
+        app:layout_constraintEnd_toStartOf="@+id/btn_registrar_empleado"
+        app:layout_constraintTop_toTopOf="@+id/btn_registrar_empleado"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,9 +8,23 @@
 
     <ListView
         android:id="@+id/lv_numeros"
-        android:layout_width="409dp"
-        android:layout_height="114dp"
+        android:layout_width="370dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_anadir_entrenador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="168dp"
+        android:text="Agregar Entrenador"
+        app:layout_constraintEnd_toEndOf="@+id/lv_numeros"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/lv_numeros"
+        app:layout_constraintTop_toBottomOf="@+id/lv_numeros" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
