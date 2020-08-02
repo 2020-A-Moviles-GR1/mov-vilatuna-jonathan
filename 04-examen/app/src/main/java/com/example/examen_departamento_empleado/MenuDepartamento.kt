@@ -25,7 +25,7 @@ class MenuDepartamento : AppCompatActivity() {
             mostrarDepartamento()
         }
         btn_cancelar_departamento.setOnClickListener{boton ->
-            finish()
+            menuPrincipal()
         }
     }
 
@@ -56,5 +56,10 @@ class MenuDepartamento : AppCompatActivity() {
         )
         this.startActivity(intentExplicito)
     }
-
+    fun menuPrincipal(){
+        val intentExplicito= Intent(
+            this, MenuEmpleado::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
 }

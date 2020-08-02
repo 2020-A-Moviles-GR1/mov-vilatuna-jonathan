@@ -16,27 +16,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
 
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="124dp"
         android:text="COD. EMPLEADO:"
         app:layout_constraintBottom_toBottomOf="@+id/txt_cod_emp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="134dp"
-        android:layout_height="17dp"
+        android:layout_width="144dp"
+        android:layout_height="18dp"
         android:text="FECHA NACIMIENTO:"
         app:layout_constraintBottom_toTopOf="@+id/txt_sueldo"
         app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.571" />
 
     <TextView
 
@@ -46,9 +50,10 @@
         android:text="COD. DEPARTAMENTO:"
         app:layout_constraintBottom_toTopOf="@+id/estado_emp"
         app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintVertical_bias="0.632" />
 
     <TextView
 
@@ -58,15 +63,19 @@
         android:text="SUELDO:"
         app:layout_constraintBottom_toTopOf="@+id/txt_code_depa_emp"
         app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:layout_constraintVertical_bias="0.673" />
 
     <Switch
 
         android:id="@+id/estado_emp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ACTIVO"
+        android:checked="false"
+        android:textOff="ACTIVO"
+        android:textOn="INACTIVO"
         app:layout_constraintEnd_toEndOf="@+id/txt_code_depa_emp"
         app:layout_constraintStart_toStartOf="@+id/txt_code_depa_emp"
         app:layout_constraintTop_toBottomOf="@+id/txt_code_depa_emp" />
@@ -90,8 +99,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NOMBRE:"
-        app:layout_constraintBottom_toTopOf="@+id/txt_fecha_emp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_nom_emp"
         app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -106,18 +116,6 @@
         app:layout_constraintEnd_toEndOf="@+id/txt_fecha_emp"
         app:layout_constraintStart_toStartOf="@+id/txt_fecha_emp"
         app:layout_constraintTop_toBottomOf="@+id/txt_fecha_emp" />
-
-    <EditText
-
-        android:id="@+id/txt_fecha_emp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="FECHA NACIMIENTO"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="@+id/txt_nom_emp"
-        app:layout_constraintStart_toStartOf="@+id/txt_nom_emp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nom_emp" />
 
     <EditText
 
@@ -140,8 +138,10 @@
         android:text="ESTADO:"
         app:layout_constraintBottom_toBottomOf="@+id/estado_emp"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.652" />
 
     <EditText
         android:id="@+id/txt_nom_emp"
@@ -158,11 +158,11 @@
         android:id="@+id/btn_registrar_empleado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="82dp"
-        android:layout_marginBottom="125dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="80dp"
         android:text="REGISTRAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/estado_emp" />
 
     <Button
         android:id="@+id/btn_cancelar_registro_empleado"
@@ -175,5 +175,15 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_registrar_empleado"
         app:layout_constraintTop_toTopOf="@+id/btn_registrar_empleado"
         app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/txt_fecha_emp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="DD/MM/YYYY"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@+id/txt_nom_emp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nom_emp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

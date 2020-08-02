@@ -25,7 +25,7 @@ class MenuEmpleado : AppCompatActivity() {
             mostrarEmpleado()
         }
         btn_cancelar_empleado.setOnClickListener{boton ->
-            finish()
+            menuPrincipal()
         }
 
     }
@@ -56,5 +56,10 @@ class MenuEmpleado : AppCompatActivity() {
         )
         this.startActivity(intentExplicito)
     }
-
+    fun menuPrincipal(){
+        val intentExplicito= Intent(
+            this, MenuDepartamento::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
 }
