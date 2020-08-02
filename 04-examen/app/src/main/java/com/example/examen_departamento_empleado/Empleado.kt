@@ -1,29 +1,36 @@
 package com.example.examen_departamento_empleado
 
-import android.text.Editable
+import android.util.Log
+import android.widget.ArrayAdapter
 import java.io.File
 import java.sql.Date
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Empleado private constructor(var codEmpleado: Int, var nombreEmpleado:String, var sueldo: Double, var fechaNacimiento: Date, var estado:Boolean, var codDepartamento: Int) {
     companion object {
         var count: Int = 0
         private fun create(codEmpleado: Int, nombreEmpleado:String, sueldo: Double, fechaNacimiento: Date, estado:Boolean, codDepartamento: Int): Empleado = Empleado(codEmpleado, nombreEmpleado, sueldo, fechaNacimiento, estado, codDepartamento)
         var datosEmpleado = arrayListOf<Any>()
+        var datosEmpleado2 = arrayListOf<Any>()
 
         fun insertarDatos(codEmpleado: Int, nombreEmpleado:String, sueldo: Double, fechaNacimiento: Date, estado:Boolean, codDepartamento: Int){
             val ingresoDatos = Empleado.create(codEmpleado, nombreEmpleado, sueldo, fechaNacimiento, estado,codDepartamento)
             this.datosEmpleado.add(arrayListOf(ingresoDatos.codEmpleado, ingresoDatos.nombreEmpleado,ingresoDatos.sueldo, ingresoDatos.fechaNacimiento, ingresoDatos.estado, ingresoDatos.codDepartamento))
         }
+
         fun totalDatos(){
             println("TOTAL EMPLEADOS: ${datosEmpleado.size}")
         }
-        fun mostrar(){
+        fun mostrar(): ArrayList<Any> {
+            datosEmpleado2.clear()
             for ((indice, item) in datosEmpleado.withIndex()) {
                 println("Indice $indice: $item")
+                datosEmpleado2.add("Indice $indice: $item")
+
             }
-        this.datosEmpleado
+        return datosEmpleado2
         }
         fun insertDatosPorConsola(){
             println ("Ingrese Codigo Empleado:")
@@ -75,7 +82,7 @@ class Empleado private constructor(var codEmpleado: Int, var nombreEmpleado:Stri
             val eliminarDatosPosicion= arrayListOf<Int>()
             val st = StringTokenizer(datosEmpleado.toString())
             while (st.hasMoreTokens()) {
-                if((count%11)==0) {
+                if((count%6)==0) {
                     if(codDepartamento==codDepa){
                         eliminarDatosPosicion.add(count2)
                     }
@@ -89,9 +96,8 @@ class Empleado private constructor(var codEmpleado: Int, var nombreEmpleado:Stri
             }
         }
         fun fecha(Date:String): Date {
-            val sdf = SimpleDateFormat("yyyy-MM-dd")
-            val strDate = "2000-01-01"
-            return Date(sdf.parse(strDate).time)
+            val sdf = SimpleDateFormat("dd/MM/yyyy")
+            return Date(sdf.parse(Date).time)
         }
     }
 }

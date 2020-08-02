@@ -2,12 +2,14 @@ package com.example.examen_departamento_empleado
 
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Departamento private constructor(var nombreDepartamento:String, var ciudad:String,var estado:Boolean, var numero: Double,var codDepartamento: Int) {
     companion object {
         var count: Int = 0
         private fun create(nombreDepartamento:String, ciudad:String,estado:Boolean, numero: Double,codDepartamento: Int): Departamento = Departamento(nombreDepartamento,  ciudad,estado, numero, codDepartamento)
         var datosDepartamento = arrayListOf<Any>()
+        var datosDepartamento2 = arrayListOf<Any>()
 
         fun insertarDatos(nombreDepartamento:String, ciudad:String,estado:Boolean, numero: Double,codDepartamento: Int){
             val ingresoDatos = Departamento.create(nombreDepartamento,  ciudad,estado, numero, codDepartamento)
@@ -17,10 +19,13 @@ class Departamento private constructor(var nombreDepartamento:String, var ciudad
         fun totalDatos(){
             println("TOTAL DEPARTAMENTOS: ${datosDepartamento.size}")
         }
-        fun mostrar(){
+        fun mostrar(): ArrayList<Any> {
+            datosDepartamento2.clear()
             for ((indice, item) in datosDepartamento.withIndex()) {
                 println("Indice $indice: $item")
+                datosDepartamento2.add("Indice $indice: $item")
             }
+            return datosDepartamento2
         }
         fun insertDatosPorConsola(){
             println ("Ingrese Codigo: ")

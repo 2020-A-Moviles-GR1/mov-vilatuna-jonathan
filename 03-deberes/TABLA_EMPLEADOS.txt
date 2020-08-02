@@ -1,2 +1,3 @@
-Indice 0: [8, PEPE, 444.6, Sat Jan 01 00:00:00 ECT 2000, true, 7] 
+Indice 0: [0, Reychel, 600.0, Thu Feb 01 00:00:00 ECT 1990, true, 1] 
+Indice 1: [5, Alex, 900.14, Thu Feb 01 00:00:00 ECT 1990, false, 1] 
 

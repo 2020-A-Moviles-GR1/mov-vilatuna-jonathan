@@ -1,11 +1,14 @@
 package com.example.examen_departamento_empleado
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_mostrar_empleado.*
+import java.sql.Date
+import java.text.SimpleDateFormat
 
 class MostrarEmpleado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,10 +16,18 @@ class MostrarEmpleado : AppCompatActivity() {
         setContentView(R.layout.activity_mostrar_empleado)
         Log.i("Activity","OnCreate")
 
+        mostrarLista()
+        btn_cancelar_muestra_empleado.setOnClickListener{ boton ->
+            irOpncEmpleado()
+        }
+    }
+
+    fun mostrarLista() {
         val adaptador = ArrayAdapter(
             this, //contexto
             android.R.layout.simple_expandable_list_item_1, // nomre layout
-            Empleado.datosEmpleado)//lista
+            Empleado.mostrar()
+        )//lista
 
         lv_empleado.adapter = adaptador
         lv_empleado
@@ -25,9 +36,13 @@ class MostrarEmpleado : AppCompatActivity() {
             Log.i("list-view", "Posicion $position")
             adaptador.notifyDataSetChanged()
         }
+    }
 
-        btn_cancelar_muestra_empleado.setOnClickListener{ boton ->
-            finish()
-        }
+    fun irOpncEmpleado(){
+        val intentExplicito= Intent(
+            this, MenuEmpleado::class.java
+        )
+        this.startActivity(intentExplicito)
     }
 }
+

@@ -1,4 +1,4 @@
-Indice 0: [Inventigacion, Quito, true, 3.1, 3] 
-Indice 1: [RRHH, Loja, true, 8.1, 5] 
-Indice 2: [CCCCCC, AMBATO, false, 3.4, 8] 
+Indice 0: [Marketing, Cuenca, true, 5.1, 1] 
+Indice 1: [Inventigacion, Quito, true, 3.1, 3] 
+Indice 2: [RRHH, Loja, true, 8.1, 5] 
 
