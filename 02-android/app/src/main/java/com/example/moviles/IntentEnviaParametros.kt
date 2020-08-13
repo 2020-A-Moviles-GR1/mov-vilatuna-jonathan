@@ -25,6 +25,20 @@ class IntentEnviaParametros : AppCompatActivity() {
 
         }
 
+        val cachetes = intent.getParcelableExtra<Mascota>("cachetes")
+        if (cachetes!=null){
+            Log.i("Parcelable","${cachetes.nombre} ${cachetes.duenio?.nombre}")
+        }
+        val arregloMascota = intent.getParcelableArrayListExtra<Mascota>("arregloMascota")
+        if(arregloMascota != null) {
+            arregloMascota.forEach {
+                if (it != null) {
+                    Log.i("Parcelable", "EN arreglo")
+                    Log.i("Parcelable", "${it.nombre} ${it.duenio?.nombre}")
+                }
+            }
+        }
+
         btn_devolver_respuesta.
                 setOnClickListener{
                     //metodo clase

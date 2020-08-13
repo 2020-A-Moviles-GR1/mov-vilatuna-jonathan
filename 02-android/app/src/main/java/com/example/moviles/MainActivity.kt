@@ -8,6 +8,7 @@ import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_intent_envia_parametros.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -111,6 +112,22 @@ class MainActivity : AppCompatActivity() {
             IntentEnviaParametros::class.java
         )
         intentExplicito.putExtra("numero",2)
+
+        val adrian = Usuario(
+            "Alex",
+            31,
+            Date(),
+            1.0
+        )
+        val cachetes = Mascota(
+            "Cachetes",
+             adrian
+            )
+
+        val arregloMascotas = arrayListOf<Mascota>(cachetes)
+        intentExplicito.putExtra("cachetes", cachetes)
+        intentExplicito.putExtra("arregloMascota", arregloMascotas)
+
         startActivity(intentExplicito)
     }
 
