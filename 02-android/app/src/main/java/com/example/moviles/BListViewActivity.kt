@@ -12,42 +12,48 @@ class BListViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b_list_view)
 
-        val listaEntrenadores = arrayListOf<Entrenador>()
+        val listaEntrenadores: ArrayList<Entrenador> = arrayListOf<Entrenador>()
 
-        listaEntrenadores.add(Entrenador("Pepe","Chupin"))
-        listaEntrenadores.add(Entrenador("Alex","Vilan"))
-        listaEntrenadores.add(Entrenador("Irina","Quinga"))
-        listaEntrenadores.add(Entrenador("Carlos","Lopez"))
-        listaEntrenadores.add(Entrenador("Jeff","Perez"))
-        listaEntrenadores.add(Entrenador("Blanco","Cat"))
-        listaEntrenadores.add(Entrenador("Oscuro","Cat"))
+        listaEntrenadores.add(Entrenador("Adrian", "Eguez"))
+        listaEntrenadores.add(Entrenador("Vicente", "Sarzosa"))
+        listaEntrenadores.add(Entrenador("Wendy", "Moises"))
+        listaEntrenadores.add(Entrenador("Ivan", "Parra"))
+        listaEntrenadores.add(Entrenador("Juan", "Duran"))
+        listaEntrenadores.add(Entrenador("Andrea", "Lara"))
+        listaEntrenadores.add(Entrenador("Lisa", "Guerrero"))
 
-        val adaptador = ArrayAdapter(
-            this, //contexto
-            android.R.layout.simple_expandable_list_item_1, // nomre layout
-            listaEntrenadores)//lista
+        val adaptador: ArrayAdapter<Entrenador> = ArrayAdapter(
+            this, // Contexto
+            android.R.layout.simple_list_item_1, // Nombre Layout
+            listaEntrenadores // Lista
+        )
 
         lv_numeros.adapter = adaptador
+
         lv_numeros
             .onItemClickListener = AdapterView.OnItemClickListener {
                 parent, view, position, id ->
             Log.i("list-view", "Posicion $position")
         }
-        btn_anadir_entrenador.
-        setOnClickListener{
-            anadirEntrenador(
-                adaptador,
-                listaEntrenadores
-            )
-        }
+
+        btn_anadir_entrenador
+            .setOnClickListener {
+                anadirEntrenador(
+                    adaptador,
+                    listaEntrenadores
+                )
+            }
+
     }
 
-    fun anadirEntrenador(adaptador: ArrayAdapter<Entrenador>,
-    listaEntenador: ArrayList<Entrenador>
+    fun anadirEntrenador(
+        adaptador: ArrayAdapter<Entrenador>,
+        listaEntrenadores: ArrayList<Entrenador>
     ){
-        listaEntenador.add(
-            Entrenador("Nuevo","Entrenador")
+        listaEntrenadores.add(
+            Entrenador("Nuevo", "Entrenador")
         )
         adaptador.notifyDataSetChanged()
     }
+
 }
