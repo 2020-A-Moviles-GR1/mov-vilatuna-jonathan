@@ -1,12 +1,10 @@
 package com.example.moviles
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_intent_envia_parametros.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -14,49 +12,76 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i("Activity","OnCreate")
+        btn_ciclo_vida
+            .setOnClickListener { boton ->
+                // this.irCicloDeVida()
+                irCicloDeVida()
+            }
 
-        btn_ciclo_vida.setOnClickListener{boton ->
-           irCicloDeVida()
-        }
+        btn_list_view
+            .setOnClickListener { boton ->
+                irListView()
+            }
 
-        btn_list_view.setOnClickListener { boton ->
-            irListView()
-        }
+        btn_intent_respuesta
+            .setOnClickListener {
+                irAIntentConRespuesta()
+            }
 
-        btn_intent_respuesta.setOnClickListener {boton ->
-            irAIntentConRespuesta()
-        }
         btn_intent_implicito
-    .setOnClickListener{
-        enviarIntenConRespuesta()
+            .setOnClickListener {
+                enviarIntentConRespuesta()
+            }
+
+        btn_resp_propia
+            .setOnClickListener {
+                enviarIntentConRespuestaPropia()
+            }
+
+        btn_http.setOnClickListener {
+            abrirActividadHttp()
+        }
+
+        btn_recycler
+            .setOnClickListener {
+                abrirRecyclerViewActivity()
+            }
     }
 
-     btn_resp_propia
-         .setOnClickListener{
-             enviarIntentConRespuestaPropia()
-         }
+    fun abrirRecyclerViewActivity(){
+        val intentExplicito = Intent(
+            this,
+            RecyclerViewActivity::class.java
+        )
+        startActivity(intentExplicito)
+    }
+
+    fun abrirActividadHttp() {
+        val intentExplicito = Intent(
+            this,
+            HttpActivity::class.java
+        )
+        startActivity(intentExplicito)
     }
 
 
+    fun enviarIntentConRespuestaPropia() {
+        val intentExplicito = Intent(
+            this,
+            IntentEnviaParametros::class.java
+        )
+        startActivityForResult(intentExplicito, 305)
+    }
 
-
-    fun enviarIntentConRespuestaPropia(){
-         val intentExplicito = Intent(
-             this,
-             IntentEnviaParametros::class.java
-         )
-         startActivityForResult(intentExplicito, 305)
-
-     }
-    fun enviarIntenConRespuesta(){
-        val intetConRespuesta = Intent(
+    fun enviarIntentConRespuesta() {
+        val intentConRespuesta = Intent(
             Intent.ACTION_PICK,
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI
         )
-       // this.startActivityForResult(intent, codigoDeRespuesta)
-       //304 lo pusimos nosotro no es ningu numero especial
-        startActivityForResult(intetConRespuesta,304)
+
+        // this.startActivityForResult(intent, codigoDeRespuesta)
+        // 304 lo pusimos nosotros, no es ningun numero en especial
+        startActivityForResult(intentConRespuesta, 304)
     }
 
     override fun onActivityResult(
@@ -91,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     305 -> {
-                        if (data!= null){
+                        if (data != null) {
                             val nombre = data.getStringExtra("nombre")
                             val edad = data.getIntExtra("edad", 0)
                             Log.i("resultado", "Nombre: ${nombre} Edad: ${edad}")
@@ -106,43 +131,48 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun irAIntentConRespuesta(){
+    fun irAIntentConRespuesta() {
         val intentExplicito = Intent(
             this,
             IntentEnviaParametros::class.java
         )
-        intentExplicito.putExtra("numero",2)
+        intentExplicito.putExtra("numero", 2)
 
         val adrian = Usuario(
-            "Alex",
+            "Adrian",
             31,
             Date(),
             1.0
         )
         val cachetes = Mascota(
             "Cachetes",
-             adrian
-            )
-
+            adrian
+        )
         val arregloMascotas = arrayListOf<Mascota>(cachetes)
+
         intentExplicito.putExtra("cachetes", cachetes)
-        intentExplicito.putExtra("arregloMascota", arregloMascotas)
+        intentExplicito.putExtra("arregloMascotas", arregloMascotas)
 
         startActivity(intentExplicito)
     }
 
-    fun irCicloDeVida(){
-        val intentExplicito= Intent(
-            this, CicloDeVida::class.java
+    fun irListView() {
+        val intentExplicito = Intent(
+            this,
+            BListViewActivity::class.java
         )
-this.startActivity(intentExplicito)
-    }
-
-    fun irListView(){
-        val intentExplicito= Intent(
-            this, BListViewActivity::class.java
-        )
-        //this.startActivity(intentExplicito)
+        // this.startActivity(intentExplicito)
         startActivity(intentExplicito)
     }
+
+    fun irCicloDeVida() {
+        val intentExplicito = Intent(
+            this,
+            CicloVida::class.java
+        )
+        // this.startActivity(intentExplicito)
+        startActivity(intentExplicito)
+    }
+
+
 }

@@ -21,7 +21,7 @@
         android:id="@+id/btn_ciclo_vida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="110dp"
         android:text="Ciclo De Vida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
@@ -60,5 +60,26 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btn_intent_implicito"
         app:layout_constraintTop_toBottomOf="@+id/btn_intent_implicito" />
+
+    <Button
+        android:id="@+id/btn_http"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="HTTP"
+        app:layout_constraintEnd_toEndOf="@+id/btn_resp_propia"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="@+id/btn_resp_propia"
+        app:layout_constraintTop_toBottomOf="@+id/btn_resp_propia" />
+
+    <Button
+        android:id="@+id/btn_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:text="RECYCLER"
+        app:layout_constraintEnd_toEndOf="@+id/btn_http"
+        app:layout_constraintStart_toStartOf="@+id/btn_http"
+        app:layout_constraintTop_toBottomOf="@+id/btn_http" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

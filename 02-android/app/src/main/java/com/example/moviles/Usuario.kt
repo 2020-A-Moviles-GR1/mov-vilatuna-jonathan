@@ -3,14 +3,14 @@ package com.example.moviles
 import android.os.Parcel
 import android.os.Parcelable
 import java.util.*
-//usuario.ky
+// Usuario.kt
 class Usuario(
     var nombre: String?,
     var edad: Int,
     var fechaNacimiento: Date,
     var sueldo: Double
-):Parcelable{
-    //Deserealizar(lee)
+):Parcelable {
+    // Deserealizar (Lee)
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readInt(),
@@ -19,7 +19,7 @@ class Usuario(
     ) {
     }
 
-    //Serializa (escribe)
+    // Serializa (Escribe)
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nombre)
         parcel.writeInt(edad)
@@ -42,3 +42,23 @@ class Usuario(
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
