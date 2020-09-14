@@ -12,6 +12,8 @@ class MenuDepartamento : AppCompatActivity() {
         setContentView(R.layout.activity_menu_departamento)
         Log.i("Activity","OnCreate")
 
+
+
         bnt_reg_departamento.setOnClickListener{boton ->
             registrarDepartamento()
         }

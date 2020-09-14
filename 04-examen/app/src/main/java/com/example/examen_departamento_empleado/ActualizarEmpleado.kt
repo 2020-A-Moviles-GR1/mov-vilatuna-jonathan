@@ -1,5 +1,6 @@
 package com.example.examen_departamento_empleado
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -8,11 +9,15 @@ import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.fuel.httpPut
+import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_actualizar_empleado.*
 import java.sql.Date
 import java.text.SimpleDateFormat
 
 class ActualizarEmpleado : AppCompatActivity() {
+    val urlPrincipal = "http://192.168.56.1:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualizar_empleado)
@@ -50,7 +55,7 @@ class ActualizarEmpleado : AppCompatActivity() {
 
         btn_actualizar_empleado.setOnClickListener{ boton ->
             var estado = this.estado_act_emp.isChecked
-            if (tv_indice.text.toString().equals("") ||
+            if (id.text.toString().equals("") ||
                 txt_act_cod_emp.text.toString().equals("") ||
                 txt_act_nom_emp.text.toString().equals("") ||
                 txt_act_sueldo_emp.text.toString().equals("") ||
@@ -60,7 +65,7 @@ class ActualizarEmpleado : AppCompatActivity() {
                     Toast.LENGTH_LONG).show();
             }else {
                 Empleado.udate(
-                    tv_indice.text.toString().toInt(),
+                    id.text.toString().toInt(),
                     txt_act_cod_emp.text.toString().toInt(),
                     txt_act_nom_emp.text.toString(),
                     txt_act_sueldo_emp.text.toString().toDouble(),
@@ -68,7 +73,32 @@ class ActualizarEmpleado : AppCompatActivity() {
                     estado,
                     txt_act_cod_dep_emp.text.toString().toInt()
                 )
-                mostrarEmpleadoActualizado()
+                val url = urlPrincipal + "/Empleado/${id.text.toString().toInt()}"
+
+                val parametrosUsuario: List<Pair<String, String>> = listOf(
+                    "codEmpleado" to "${txt_act_cod_emp.text.toString().toInt()}",
+                    "nombreEmpleado" to "${ txt_act_nom_emp.text.toString()}",
+                    "sueldo" to "${txt_act_sueldo_emp.text.toString().toDouble()}",
+                    "fechaNacimiento" to "${fecha(txt_act_fecha_emp.text.toString())}",
+                    "estado" to "${estado}",
+                    "codDepartamento" to "${txt_act_cod_dep_emp.text.toString().toInt()}"
+                )
+
+                url
+                    .httpPut(parametrosUsuario)
+                    .responseString { req, res, result ->
+                        when (result) {
+                            is Result.Failure -> {
+                                val error = result.getException()
+                                Log.i("http-klaxon", "Error: ${error}")
+                            }
+                            is Result.Success -> {
+                                val usuarioString = result.get()
+                                Log.i("http-klaon", "${usuarioString}")
+                            }
+                        }
+                    }
+                mostrarEmpleado()
             }
         }
         btn_cancelar_actualizar_empleado.setOnClickListener{ boton ->
@@ -80,7 +110,7 @@ class ActualizarEmpleado : AppCompatActivity() {
         val adaptador = ArrayAdapter(
             this, //contexto
             android.R.layout.simple_expandable_list_item_1, // nomre layout
-            Empleado.mostrar()
+            EmpleadoHTTP.muestra()
         )//lista
 
         lv_datos_actualizar.adapter = adaptador
@@ -88,11 +118,15 @@ class ActualizarEmpleado : AppCompatActivity() {
             .onItemClickListener = AdapterView.OnItemClickListener {
                 parent, view, position, id ->
             Log.i("list-view", "Posicion $position")
-            tv_indice.text=position.toString()
             adaptador.notifyDataSetChanged()
         }
     }
-
+    fun mostrarEmpleado(){
+        val intentExplicito= Intent(
+            this, MenuEmpleado::class.java
+        )
+        this.startActivity(intentExplicito)
+    }
     fun fecha(Date:String): Date {
         val sdf = SimpleDateFormat("dd/MM/yyyy")
         return Date(sdf.parse(Date).time)

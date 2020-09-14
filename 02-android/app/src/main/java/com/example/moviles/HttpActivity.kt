@@ -104,21 +104,19 @@ class HttpActivity : AppCompatActivity() {
 
                         val usuarios = Klaxon()
                             .parseArray<UsuarioHttp>(data)
-                        if (usuarios != null) {
-                            usuarios.forEach {
-                                Log.i(
-                                    "http-klaxon",
-                                    "Nombre: ${it.nombre}"
-                                            +
-                                            " Estado civil: ${it.estadoCivil}"
-                                )
-                                if (it.pokemons!!.size > 0) {
-                                    it.pokemons!!.forEach {
-                                        Log.i(
-                                            "http-klaxon",
-                                            "Nombre: ${it.nombre}"
-                                        )
-                                    }
+                        usuarios?.forEach {
+                            Log.i(
+                                "http-klaxon",
+                                "Nombre: ${it.nombre}"
+                                        +
+                                        " Estado civil: ${it.estadoCivil}"
+                            )
+                            if (it.pokemons!!.size > 0) {
+                                it.pokemons!!.forEach {
+                                    Log.i(
+                                        "http-klaxon",
+                                        "Nombre: ${it.nombre}"
+                                    )
                                 }
                             }
                         }
@@ -191,7 +189,6 @@ class HttpActivity : AppCompatActivity() {
                                 Log.i(
                                     "http-klaxon",
                                     "$it")
-
 
                             }
 

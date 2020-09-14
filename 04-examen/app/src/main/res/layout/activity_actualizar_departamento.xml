@@ -21,10 +21,11 @@
 
     <TextView
 
+        android:id="@+id/textView29"
         android:layout_width="231dp"
         android:layout_height="25dp"
         android:layout_marginStart="113dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="67dp"
         android:text="ACTUALIZAR DEPARTAMENTO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,10 +146,9 @@
         android:ems="10"
         android:hint="COD. DEPARTAMENTO"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/tv_indice"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/tv_indice"
-        app:layout_constraintTop_toBottomOf="@+id/tv_indice" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_id"
+        app:layout_constraintStart_toStartOf="@+id/txt_id"
+        app:layout_constraintTop_toBottomOf="@+id/txt_id" />
 
     <Button
 
@@ -164,8 +164,8 @@
 
     <ListView
         android:id="@+id/lv_datos_actualizados"
-        android:layout_width="410dp"
-        android:layout_height="309dp"
+        android:layout_width="411dp"
+        android:layout_height="160dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
@@ -181,19 +181,21 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="88dp"
         android:text="INDICE"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_indice"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tv_indice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="104dp"
-        android:text="-"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_id"
+        android:layout_width="95dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
