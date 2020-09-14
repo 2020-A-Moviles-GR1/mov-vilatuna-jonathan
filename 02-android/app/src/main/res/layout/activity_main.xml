@@ -10,7 +10,7 @@
         android:id="@+id/btn_intent_implicito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="25dp"
         android:text="L Implicito"
         app:layout_constraintEnd_toEndOf="@+id/btn_intent_respuesta"
         app:layout_constraintHorizontal_bias="0.526"
@@ -21,7 +21,7 @@
         android:id="@+id/btn_ciclo_vida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="50dp"
         android:text="Ciclo De Vida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
@@ -54,7 +54,7 @@
         android:id="@+id/btn_resp_propia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="25dp"
         android:text="RES. PROPIA"
         app:layout_constraintEnd_toEndOf="@+id/btn_intent_implicito"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +65,7 @@
         android:id="@+id/btn_http"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="25dp"
         android:text="HTTP"
         app:layout_constraintEnd_toEndOf="@+id/btn_resp_propia"
         app:layout_constraintHorizontal_bias="0.777"
@@ -76,10 +76,20 @@
         android:id="@+id/btn_recycler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="25dp"
         android:text="RECYCLER"
         app:layout_constraintEnd_toEndOf="@+id/btn_http"
         app:layout_constraintStart_toStartOf="@+id/btn_http"
         app:layout_constraintTop_toBottomOf="@+id/btn_http" />
+
+    <Button
+        android:id="@+id/btn_mapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="MAPA"
+        app:layout_constraintEnd_toEndOf="@+id/btn_recycler"
+        app:layout_constraintStart_toStartOf="@+id/btn_recycler"
+        app:layout_constraintTop_toBottomOf="@+id/btn_recycler" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

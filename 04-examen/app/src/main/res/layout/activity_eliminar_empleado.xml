@@ -30,11 +30,11 @@
         android:id="@+id/btn_eliminar_empleado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
         android:text="ELIMINAR"
         app:layout_constraintBottom_toBottomOf="@+id/btn_cancelar_eliminacion"
-        app:layout_constraintEnd_toEndOf="@+id/textView30"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView30" />
+        app:layout_constraintStart_toEndOf="@+id/btn_cancelar_eliminacion"
+        app:layout_constraintTop_toTopOf="@+id/btn_cancelar_eliminacion" />
 
     <TextView
         android:id="@+id/textView12"
@@ -47,25 +47,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv_eliminar" />
 
-    <TextView
-        android:id="@+id/tv_indice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:text="-"
+    <EditText
+        android:id="@+id/txt_indice"
+        android:layout_width="82dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="102dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:text="INDICE"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_indice"
-        app:layout_constraintStart_toEndOf="@+id/tv_indice"
-        app:layout_constraintTop_toTopOf="@+id/tv_indice"
-        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

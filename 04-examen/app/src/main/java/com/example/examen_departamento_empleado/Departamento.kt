@@ -4,7 +4,11 @@ import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Departamento private constructor(var nombreDepartamento:String, var ciudad:String,var estado:Boolean, var numero: Double,var codDepartamento: Int) {
+class Departamento private constructor(var nombreDepartamento:String,
+                                       var ciudad:String,
+                                       var estado:Boolean,
+                                       var numero: Double,
+                                       var codDepartamento: Int) {
     companion object {
         var count: Int = 0
         private fun create(nombreDepartamento:String, ciudad:String,estado:Boolean, numero: Double,codDepartamento: Int): Departamento = Departamento(nombreDepartamento,  ciudad,estado, numero, codDepartamento)

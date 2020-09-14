@@ -10,10 +10,12 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_registrar_empleado.*
 import java.sql.Date
 import java.text.SimpleDateFormat
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.result.Result
 
 class RegistrarEmpleado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        val urlPrincipal = "http://192.168.56.1:1337"
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_empleado)
         Log.i("Activity","OnCreate")
@@ -54,7 +56,8 @@ class RegistrarEmpleado : AppCompatActivity() {
                 txt_nom_emp.text.toString().equals("") ||
                 txt_sueldo.text.toString().equals("") ||
                 txt_fecha_emp.text.toString().equals("") ||
-                txt_code_depa_emp.text.toString().equals("")   ) {
+                txt_code_depa_emp.text.toString().equals("")||
+                txt_indice.text.toString().equals("")) {
                 Toast.makeText(this, "Ha dejado campos vacios",
                     Toast.LENGTH_LONG).show();
             }else {
@@ -66,6 +69,33 @@ class RegistrarEmpleado : AppCompatActivity() {
                     estado,
                     txt_code_depa_emp.text.toString().toInt()
                 )
+                val url = urlPrincipal + "/Empleado"
+
+                val parametrosUsuario: List<Pair<String, String>> = listOf(
+                    "codEmpleado" to "${txt_cod_emp.text.toString().toInt()}",
+                    "nombreEmpleado" to "${txt_nom_emp.text.toString()}",
+                    "sueldo" to "${txt_sueldo.text.toString().toDouble()}",
+                    "fechaNacimiento" to "${fecha(txt_fecha_emp.text.toString())}",
+                    "estado" to "${estado}",
+                    "codDepartamento" to "${txt_code_depa_emp.text.toString().toInt()}",
+                    "departamento" to "${txt_indice.text.toString().toInt()}"
+                )
+
+                url
+                    .httpPost(parametrosUsuario)
+                    .responseString { req, res, result ->
+                        when (result) {
+                            is Result.Failure -> {
+                                val error = result.getException()
+                                Log.i("http-klaxon", "Error: ${error}")
+                            }
+                            is Result.Success -> {
+                                val usuarioString = result.get()
+                                Log.i("http-klaon", "${usuarioString}")
+                            }
+                        }
+                    }
+
                 mostrarEmpleado()
             }
         }
@@ -75,7 +105,7 @@ class RegistrarEmpleado : AppCompatActivity() {
     }
     fun mostrarEmpleado(){
         val intentExplicito= Intent(
-            this, MostrarEmpleado::class.java
+            this, MenuEmpleado::class.java
         )
         this.startActivity(intentExplicito)
     }

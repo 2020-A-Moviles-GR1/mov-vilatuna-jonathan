@@ -8,7 +8,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Empleado private constructor(var codEmpleado: Int, var nombreEmpleado:String, var sueldo: Double, var fechaNacimiento: Date, var estado:Boolean, var codDepartamento: Int) {
+class Empleado private constructor(var codEmpleado: Int,
+                                   var nombreEmpleado:String,
+                                   var sueldo: Double,
+                                   var fechaNacimiento: Date,
+                                   var estado:Boolean,
+                                   var codDepartamento: Int) {
     companion object {
         var count: Int = 0
         private fun create(codEmpleado: Int, nombreEmpleado:String, sueldo: Double, fechaNacimiento: Date, estado:Boolean, codDepartamento: Int): Empleado = Empleado(codEmpleado, nombreEmpleado, sueldo, fechaNacimiento, estado, codDepartamento)

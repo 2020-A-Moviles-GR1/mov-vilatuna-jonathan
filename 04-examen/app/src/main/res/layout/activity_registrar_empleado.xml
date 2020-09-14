@@ -133,6 +133,7 @@
 
     <TextView
 
+        android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:text="ESTADO:"
@@ -185,5 +186,28 @@
         android:inputType="date"
         app:layout_constraintStart_toStartOf="@+id/txt_nom_emp"
         app:layout_constraintTop_toBottomOf="@+id/txt_nom_emp" />
+
+    <EditText
+        android:id="@+id/txt_indice"
+        android:layout_width="117dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/estado_emp"
+        app:layout_constraintStart_toStartOf="@+id/estado_emp"
+        app:layout_constraintTop_toBottomOf="@+id/estado_emp" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INDICE DEP.:"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_indice"
+        app:layout_constraintEnd_toEndOf="@+id/textView31"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView31"
+        app:layout_constraintTop_toTopOf="@+id/txt_indice"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
