@@ -1,5 +1,6 @@
-package com.example.moviles
+package com.example.examen_departamento_empleado
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,11 +16,11 @@ import com.google.android.gms.maps.model.*
 
 class MapsActivity : AppCompatActivity(),
     OnMapReadyCallback,
-        GoogleMap.OnCameraMoveStartedListener,
-        GoogleMap.OnCameraMoveListener,
-        GoogleMap.OnCameraIdleListener,
-        GoogleMap.OnPolylineClickListener,
-        GoogleMap.OnPolygonClickListener
+    GoogleMap.OnCameraMoveStartedListener,
+    GoogleMap.OnCameraMoveListener,
+    GoogleMap.OnCameraIdleListener,
+    GoogleMap.OnPolylineClickListener,
+    GoogleMap.OnPolygonClickListener
 {
 
     private lateinit var mMap: GoogleMap
@@ -36,50 +37,33 @@ class MapsActivity : AppCompatActivity(),
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 // 1) permisos
         establecerConfiguracionMapa(mMap)
         establecerListeners(mMap)
-        val espe = LatLng(-0.314085, -78.445839)
         val puntoUsuario = LatLng(-0.313640, -78.445056)
-        val titulo = "ESPE"
         val zoom = 17f
-        anadirmarcador(espe,titulo)
+
+        var coordenada1 = -0.313640
+        var coordenada2 = -78.445839
+
+        for ((indice, item) in EmpleadoHTTP.muestra().withIndex()) {
+            anadirmarcador(LatLng(coordenada1,coordenada2), item.toString())
+            coordenada1 = coordenada1-0.000100
+            coordenada2 = coordenada2-0.000100
+        }
+
         moverCamaraConZoom(puntoUsuario,zoom)
-val poliLineaUno = googleMap.addPolyline(
-    PolylineOptions().
-    clickable(true).
-    add(
-    LatLng(-0.298256, -78.461454),
-    LatLng(-0.297033, -78.463750),
-    LatLng(-0.294764, -78.461647),
-    LatLng(-0.295756, -78.460869)
-))
 
+        mMap.setOnMarkerClickListener { boton ->
+            irUrlWeb()
+        }
 
-        val poligonoUno = googleMap.addPolygon(
-            PolygonOptions().
-            clickable(true).
-            add(
-            LatLng(-0.281140, -78.402116),
-            LatLng(-0.280150, -78.400794),
-            LatLng(-0.280834, -78.399638),
-            LatLng(-0.284012, -78.402407)
-        ))
-        poligonoUno.fillColor = -0xc771c4
-  }
+    }
 
     fun moverCamaraConZoom(latLng: LatLng, zoom: Float = 10f){
         mMap.moveCamera(CameraUpdateFactory
@@ -90,7 +74,18 @@ val poliLineaUno = googleMap.addPolyline(
             MarkerOptions()
                 .position(latLng)
                 .title(tile)
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.launcher))
+        ).showInfoWindow()
+
+    }
+
+    fun irUrlWeb(): Boolean {
+        val intentExplicito = Intent(
+            this,
+            WebView::class.java
         )
+        this.startActivity(intentExplicito)
+        return true
     }
 
     fun solicitarPermisos(){
@@ -99,30 +94,30 @@ val poliLineaUno = googleMap.addPolyline(
                 this.applicationContext,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
             )
-        val tienePermisos = permisosFineLocation==PackageManager. PERMISSION_GRANTED
+        val tienePermisos = permisosFineLocation== PackageManager. PERMISSION_GRANTED
         if(tienePermisos){
-this.tienePermisos = true
+            this.tienePermisos = true
             Log.i("mapa", "tiene permisos FINE LOCATION")
         }else{
-ActivityCompat.requestPermissions(
-    this, //contexto
-    arrayOf( // arreglo permisos
-        android.Manifest.permission.ACCESS_FINE_LOCATION
-    ),
-    1 // codigo que esperamos
-)
+            ActivityCompat.requestPermissions(
+                this, //contexto
+                arrayOf( // arreglo permisos
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                ),
+                1 // codigo que esperamos
+            )
         }
     }
 
     fun establecerConfiguracionMapa(mapa: GoogleMap){
         val contexto = this.applicationContext
         with(mapa){
-        val permisosFineLocation = ContextCompat
-            .checkSelfPermission(
-                contexto,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            )
-            val tienePermisos = permisosFineLocation==PackageManager. PERMISSION_GRANTED
+            val permisosFineLocation = ContextCompat
+                .checkSelfPermission(
+                    contexto,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            val tienePermisos = permisosFineLocation== PackageManager. PERMISSION_GRANTED
             if(tienePermisos){
                 mapa.isMyLocationEnabled = true
             }
@@ -142,7 +137,7 @@ ActivityCompat.requestPermissions(
     }
 
     override fun onCameraMoveStarted(p0: Int) {
-       Log.i("mapa","Empezando a mover onCameraMoveStarted")
+        Log.i("mapa","Empezando a mover onCameraMoveStarted")
     }
 
     override fun onCameraMove() {

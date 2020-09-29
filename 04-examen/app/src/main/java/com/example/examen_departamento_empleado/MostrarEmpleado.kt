@@ -24,6 +24,11 @@ class MostrarEmpleado : AppCompatActivity() {
             mostrarLista()
         }
     EmpleadoHTTP.borrar()
+
+        btn_vista.setOnClickListener{ boton ->
+            abrirRecyclerViewActivity()
+        }
+
         btn_cancelar_muestra_empleado.setOnClickListener{ boton ->
             irOpncEmpleado()
         }
@@ -82,5 +87,12 @@ class MostrarEmpleado : AppCompatActivity() {
         this.startActivity(intentExplicito)
     }
 
+    fun abrirRecyclerViewActivity(){
+        val intentExplicito = Intent(
+            this,
+            RecyclerViewActivity::class.java
+        )
+        startActivity(intentExplicito)
+    }
  }
 
