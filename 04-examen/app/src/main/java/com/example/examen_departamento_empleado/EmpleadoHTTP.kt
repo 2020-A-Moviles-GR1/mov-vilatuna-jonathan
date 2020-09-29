@@ -17,7 +17,7 @@ var nombreEmpleado: String,
 //var fechaNacimiento: Date,
 //var estado: Boolean,
 var codDepartamento: Int,
-    var departamento: Any?
+    var departamento: Any? = null
 )
 {
     var fechaCreacion: Date
